@@ -1,0 +1,67 @@
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    background: linear-gradient(180deg, #E0F7FA 0%, #80DEEA 100%);
+}
+
+
+.actions {
+    width: 100%;
+    height: 100px;
+    padding: 8px;
+}
+
+.add-button {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 10px 0 0 10px;
+    transition: 0.3s width;
+}
+
+.add-button:hover {
+    width: 300px;
+}
+
+.add-button > button {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: #3E2723;
+    color: #ffffff;
+    border-radius: 50%;
+    z-index: 1;
+    font-size: 30px;
+}
+
+.add-button .add-button-animals {
+    height: 50px;
+    width: 250px;
+    background: #f0f0f0;
+    position: absolute;
+    top: 0;
+    left: -300px;
+    z-index: 0;
+    border-radius: 10px 5px 5px 10px;
+    padding: 0 10px 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s all;
+}
+
+.add-button:hover .add-button-animals {
+    left: 30px;
+}
+
+.add-button-animals > div {
+    width: 40px;
+    height: 40px;
+    background: #000000;
+    border-radius: 50%;
+}

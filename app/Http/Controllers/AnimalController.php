@@ -63,7 +63,7 @@ class AnimalController extends ApiController
             return $this->makeResponse($requestedAnimal, 404, 'No such animal existing');
 
         if ($animal->age >= $animal->kind->max_age)
-            return $this->makeResponse($requestedAnimal, 422, 'Growed to the maximum age of its kind');
+            return $this->makeResponse($requestedAnimal, 200, 'Growed to the maximum age of its kind');
 
         $size = $this->ageAnimal($animal);
 
