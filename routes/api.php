@@ -14,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+
+Route::get('/animal_kinds', [\App\Http\Controllers\AnimalKindController::class, 'index'])->name('get-kinds');
+
+Route::prefix('animals')->name('animals.')->group( function () {
+    Route::get('/', [\App\Http\Controllers\AnimalController::class, 'index'])->name('get-all');
+    Route::get('/{animal}', [\App\Http\Controllers\AnimalController::class, 'show'])->name('get-info');
+    Route::post('/', [\App\Http\Controllers\AnimalController::class, 'create'])->name('create');
+    Route::post('/age', [\App\Http\Controllers\AnimalController::class, 'update'])->name('update');
+    Route::delete('/', [\App\Http\Controllers\AnimalController::class, 'deleteAll'])->name('delete-all');
 });
+
