@@ -13,7 +13,7 @@ class ApiController extends Controller
      */
     public function makeResponse($data, $status = 200, $errorMsg = '')
     {
-        if ($status != 200)
+        if ($status != 200 || $errorMsg)
             return $this->makeResponseWithError($data, $status, $errorMsg);
 
         return response()->json([

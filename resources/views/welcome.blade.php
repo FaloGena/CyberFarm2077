@@ -2,6 +2,6 @@
 
 @section('content')
     <div id="app">
-        <Test></Test>
+        <animal-farming></animal-farming>
     </div>
 @endsection

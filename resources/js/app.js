@@ -2,10 +2,13 @@ require('./bootstrap');
 
 import { createApp } from 'vue';
 
-import Test from './Components/Test.vue';
+import AnimalFarming from './Components/AnimalFarming.vue';
 
-createApp({
-    components: {
-        Test
-    }
-}).mount('#app')
+
+const app = createApp({});
+app.component('AnimalFarming', AnimalFarming);
+const mountedApp = app.mount('#app');
+
+
+let test = app;
+console.log(test);
