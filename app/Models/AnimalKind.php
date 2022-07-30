@@ -16,4 +16,12 @@ class AnimalKind extends Model
         'max_age',
         'growth_factor'
     ];
+
+    public $timestamps = false;
+
+
+    public function animals()
+    {
+        return $this->hasMany(Animal::class, 'animal_kind_id');
+    }
 }

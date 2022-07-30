@@ -7,5 +7,28 @@ use Illuminate\Database\Eloquent\Model;
 
 class Animal extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'animal_kind_id'
+    ];
+
+    public $timestamps = false;
+
+
+    public function kind()
+    {
+        return $this->belongsTo(AnimalKind::class, 'animal_kind_id');
+    }
+
+    public function calculateSize()
+    {
+        $kind = $this->kind;
+
+        $max_age = $kind->max_age;
+        $max_size = $kind->max_size;
+        $growth_factor = $kind->growth_factor;
+
+        $current_age = $this->age;
+
+        return $max_size / (pow($growth_factor, $max_age - $current_age));
+    }
 }
