@@ -20,4 +20,14 @@ DELETE /animals - delete all created animals
 
 </br>
 
+If you want to test it by yourself don't forget to 
+
+```
+npm install
+npm run dev
+php artisan migrate
+```
+
+</br>
+
 Some decisions were made to show different ways of approach
