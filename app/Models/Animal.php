@@ -19,6 +19,12 @@ class Animal extends Model
         return $this->belongsTo(AnimalKind::class, 'animal_kind_id');
     }
 
+    /**
+     * Get size for current age
+     * Based on parameters of its kind
+     *
+     * @return float|int
+     */
     public function calculateSize()
     {
         $kind = $this->kind;

@@ -13,6 +13,11 @@ class AnimalController extends ApiController
 {
     use AnimalTrait;
 
+    /**
+     * Get current Animals with their sizes
+     *
+     * @return false|string
+     */
     public function index()
     {
         $animals = (new AnimalRepository(Animal::class))->getForDisplay();
@@ -23,11 +28,23 @@ class AnimalController extends ApiController
         return $this->makeResponse(compact('animals', 'sizes'));
     }
 
+    /**
+     * Get information about certain Animal
+     *
+     * @param Animal $animal
+     * @return false|string
+     */
     public function show(Animal $animal)
     {
         return $this->makeResponse(['animal' => $animal, 'size' => $animal->calculateSize()]);
     }
 
+    /**
+     * Create new Animal of requested kind (maximum 4 at the time)
+     *
+     * @param AnimalCreateRequest $request
+     * @return false|string
+     */
     public function create(AnimalCreateRequest $request)
     {
         if (Animal::count() >= 4)
@@ -52,6 +69,12 @@ class AnimalController extends ApiController
         return $this->makeResponse(['animal' => $animal, 'size' => $animal->calculateSize(), 'maxAge' => $kind->max_age]);
     }
 
+    /**
+     * Age the Animal by 1 and get new size
+     *
+     * @param AnimalAgeRequest $request
+     * @return false|string
+     */
     public function update(AnimalAgeRequest $request)
     {
         // Same situation with ID here
@@ -70,6 +93,11 @@ class AnimalController extends ApiController
         return $this->makeResponse(compact('animal', 'size'));
     }
 
+    /**
+     * Delete all Animal records (basically to create new ones due to limitation of 4)
+     *
+     * @return false|string
+     */
     public function deleteAll()
     {
         // Same about expanding
