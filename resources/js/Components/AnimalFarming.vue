@@ -30,7 +30,7 @@
             return {
                 animals: [],
                 sizes: [],
-                aging: false,
+                aging: true,
             }
         },
         methods: {
